@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta name="description" content="MaskFlow: A discrete chunkwise autoregressive approach for long video generation.">
+  <meta property="og:title" content="MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation"/>
+  <meta property="og:description" content="Coming soon, check https://github.com/CompVis/maskflow for updates."/>
+  <meta property="og:url" content="https://compvis.github.io/maskflow/"/>
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <meta name="twitter:title" content="MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation">
+  <meta name="twitter:description" content="Coming soon, check https://github.com/CompVis/maskflow for updates.">
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords" content="MaskFlow, discrete flows, video generation, deep learning, generative models, AI research">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <section class="hero" style="background-image: url(static/images/backgroundddd.avif);">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Michael Fuest,</span>
+              <span class="author-block"><a href="https://taohu.me" target="_blank">Vincent Tao Hu</a>,</span>
+              <span class="author-block"><a href="https://ommer-lab.com/people/ommer/" target="_blank">Björn Ommer</a></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block" style="font-weight: bold;">CompVis @ LMU Munich, MCML<br><br></span>
+            </div>
+            <div class="column has-text-centered">
+              <h2 class="subtitle has-text-centered" style="font-weight: bold;color:gray; margin-top: 25px;">
+                Coming soon. Check <a href="https://github.com/CompVis/maskflow" target="_blank">https://github.com/CompVis/maskflow</a> for updates.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
