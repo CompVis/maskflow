@@ -75,7 +75,7 @@
     </div>
   </section>
 
-  <!-- Show an error if CSS or JS are missing -->
+  <!-- Show an error if CSS or JS are missing ## -->
   <noscript>
     <p style="text-align:center; color:red; font-weight:bold;">
       JavaScript is disabled or your resources aren't loading. Please enable JavaScript or check resource paths.
