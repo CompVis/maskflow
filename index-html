@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Libraries & meta setup -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
@@ -8,10 +9,9 @@
   <meta property="og:title" content="MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation"/>
   <meta property="og:description" content="Coming soon, check https://github.com/CompVis/maskflow for updates."/>
   <meta property="og:url" content="https://compvis.github.io/maskflow/"/>
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image" content="static/images/your_banner_image.png" />
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
-
   <meta name="twitter:title" content="MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation">
   <meta name="twitter:description" content="Coming soon, check https://github.com/CompVis/maskflow for updates.">
   <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
@@ -20,20 +20,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/maskflow/static/images/favicon.ico">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- Bulma & Custom CSS (Absolute paths) -->
+  <link rel="stylesheet" href="/maskflow/static/css/bulma.min.css">
+  <link rel="stylesheet" href="/maskflow/static/css/index.css">
+
+  <!-- jQuery (CDN) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <style>
+    /* Optional fallback background color if image doesn't load */
+    .hero {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
-  <section class="hero" style="background-image: url(static/images/backgroundddd.avif);">
+  <!-- Minimal Hero Section with background image -->
+  <section class="hero" style="background-image: url('/maskflow/static/images/backgroundddd.avif'); background-size: cover; background-position: center;">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation</h1>
+            <!-- Page Title -->
+            <h1 class="title is-1 publication-title">
+              MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation
+            </h1>
+            <!-- Authors -->
             <div class="is-size-5 publication-authors">
               <span class="author-block">Michael Fuest,</span>
               <span class="author-block"><a href="https://taohu.me" target="_blank">Vincent Tao Hu</a>,</span>
@@ -42,9 +61,12 @@
             <div class="is-size-5 publication-authors">
               <span class="author-block" style="font-weight: bold;">CompVis @ LMU Munich, MCML<br><br></span>
             </div>
+            <!-- Notice -->
             <div class="column has-text-centered">
-              <h2 class="subtitle has-text-centered" style="font-weight: bold;color:gray; margin-top: 25px;">
-                Coming soon. Check <a href="https://github.com/CompVis/maskflow" target="_blank">https://github.com/CompVis/maskflow</a> for updates.
+              <h2 class="subtitle has-text-centered" style="font-weight: bold; color: gray; margin-top: 25px;">
+                Coming soon. Check
+                <a href="https://github.com/CompVis/maskflow" target="_blank">https://github.com/CompVis/maskflow</a>
+                for updates.
               </h2>
             </div>
           </div>
@@ -52,5 +74,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Show an error if CSS or JS are missing -->
+  <noscript>
+    <p style="text-align:center; color:red; font-weight:bold;">
+      JavaScript is disabled or your resources aren't loading. Please enable JavaScript or check resource paths.
+    </p>
+  </noscript>
 </body>
 </html>
