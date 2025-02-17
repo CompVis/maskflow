@@ -21,13 +21,13 @@
 
   <title>MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation</title>
 
-  <!-- Favicon using PNG (modern browsers support PNG) -->
+  <!-- Favicon using PNG -->
   <link rel="icon" type="image/png" href="/maskflow/static/images/maskicon.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
-  <!-- Bulma & Custom CSS (Absolute paths) -->
+  <!-- Bulma & Custom CSS -->
   <link rel="stylesheet" href="/maskflow/static/css/bulma.min.css">
   <link rel="stylesheet" href="/maskflow/static/css/index.css">
 
@@ -45,12 +45,12 @@
       height: 1.2em;
       margin-right: 10px;
     }
-    /* Style for figure images */
+    /* Style for figure images: no borders, white background */
     .figure-img {
       width: 100%;
       height: auto;
       background: white;
-      border: 1px solid #ccc;
+      border: none;
     }
     /* Rounded link boxes styling */
     .button.is-black {
@@ -58,12 +58,46 @@
       border-color: transparent;
       color: #fff;
     }
+    /* Style for icons inside buttons: invert colors so they show as white */
     .button.is-black img {
       vertical-align: middle;
       height: 1em;
       margin-right: 5px;
+      filter: invert(100%);
+    }
+    /* BibTex box styling */
+    .bibtex-box {
+      background: #f8f8f8;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: monospace;
+      white-space: pre;
+      position: relative;
+    }
+    .bibtex-copy {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      cursor: pointer;
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
     }
   </style>
+  
+  <script>
+    function copyBibtex() {
+      var bibtexText = document.getElementById('bibtex-code').innerText;
+      navigator.clipboard.writeText(bibtexText).then(function() {
+        alert("BibTex citation copied to clipboard!");
+      }, function(err) {
+        alert("Error copying text: ", err);
+      });
+    }
+  </script>
 </head>
 <body>
   <!-- Hero Section with background image -->
@@ -107,19 +141,21 @@
   <!-- TLDR Section with Two Columns -->
   <section class="section">
     <div class="container is-max-desktop content">
-      <h2 class="title">TLDR</h2>
       <div class="columns is-vcentered">
         <!-- Left Column: Training Figure -->
         <div class="column is-5">
-          <img src="static/images/training.jpg" alt="MaskFlow Training" class="figure-img">
+          <img src="static/images/training.png" alt="MaskFlow Training" class="figure-img">
           <p>
             <strong>MaskFlow Training:</strong> For each video, Baseline training applies a single masking ratio to all frames, whereas our method samples masking ratios independently for each frame.
           </p>
         </div>
-        <!-- Right Column: TLDR Text -->
+        <!-- Right Column: TLDR Text with Title Above Abstract -->
         <div class="column is-7">
+          <div class="has-text-right">
+            <strong>TLDR</strong>
+          </div>
           <p>
-            Generating long, high-quality videos remains a challenge due to the complex interplay of spatial and temporal dynamics and hardware limitations. In this work, we introduce <strong>MaskFlow</strong>, a unified video generation framework that combines discrete representations with flow-matching to enable efficient generation of high-quality long videos. By leveraging a frame-level masking strategy during training, MaskFlow conditions on previously generated unmasked frames to generate videos with lengths ten times beyond that of the training sequences. MaskFlow does so very efficiently by enabling the use of fast Masked Generative Model (MGM)-style sampling and can be deployed in both fully autoregressive as well as full-sequence generation modes. We validate the quality of our method on the FaceForensics (FFS) and Deepmind Lab (DMLab) datasets and report Fréchet Video Distance (FVD) competitive with state-of-the-art approaches. We also provide a detailed analysis on the sampling efficiency of our method and demonstrate that MaskFlow can be applied to both timestep-dependent and timestep-independent models in a training-free manner.
+            Generating long, high-quality videos remains a challenge due to the complex interplay of spatial and temporal dynamics and hardware limitations. In this work, we introduce <strong>MaskFlow</strong>, a unified video generation framework that combines discrete representations with flow-matching to enable efficient generation of high-quality long videos. By leveraging a frame-level masking strategy during training, MaskFlow conditions on previously generated unmasked frames to generate videos with lengths ten times beyond that of the training sequences. MaskFlow does so very efficiently by enabling the use of fast Masked Generative Model (MGM)-style sampling and can be deployed in both fully autoregressive as well as full-sequence generation modes. We validate the quality of our method on the FaceForensics (FFS) and Deepmind Lab (DMLab) datasets and report Fréchet Video Distance (FVD) competitive with state-of-the-art approaches. We also provide a detailed analysis on the sampling efficiency of our method and demonstrate that MaskFlow can be applied to both timestep-dependent and timestep-independent models in a training-free manner;
           </p>
         </div>
       </div>
@@ -130,11 +166,27 @@
   <section class="section">
     <div class="container is-max-desktop content">
       <figure>
-        <img src="static/images/sampling.jpg" alt="MaskFlow Sampling" class="figure-img">
+        <img src="static/images/sampling.png" alt="MaskFlow Sampling" class="figure-img">
         <figcaption>
           <strong>MaskFlow Sampling:</strong> Given <em>m=2</em> <span style="color: red;">context frames</span> used to initialize generation, we unmask the current window and use <span style="color: green;">newly generated frames</span> as new context frames in the next chunk of size <em>k=5</em>, using stride <em>s=3</em>. (<em>Tokenization is omitted here to simplify understanding</em>)
         </figcaption>
       </figure>
+    </div>
+  </section>
+
+  <!-- BibTex Citation Section -->
+  <section class="section">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTex</h2>
+      <div class="bibtex-box" id="bibtex-code">
+@article{fuest2025maskflow,
+  author    = {Michael Fuest and Vincent Tao Hu and Björn Ommer},
+  title     = {MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation},
+  journal   = {arXiv},
+  year      = {2025},
+}
+      </div>
+      <button class="bibtex-copy" onclick="copyBibtex()">Copy</button>
     </div>
   </section>
 
