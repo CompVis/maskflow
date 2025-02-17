@@ -21,8 +21,8 @@
 
   <title>MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/maskflow/static/images/favicon.ico">
+  <!-- Favicon using PNG (modern browsers support PNG) -->
+  <link rel="icon" type="image/png" href="/maskflow/static/images/maskicon.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
@@ -35,9 +35,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style>
-    /* Optional fallback background color if image doesn't load */
+    /* Fallback background color if image doesn't load */
     .hero {
       background-color: #f4f4f4;
+    }
+    /* Styling for the mask icon inside the title */
+    .title-icon {
+      vertical-align: middle;
+      height: 1.2em;
+      margin-right: 10px;
+    }
+    /* Ensure iframe PDFs appear as static figures */
+    .pdf-figure {
+      width: 100%;
+      height: 400px;
+      border: none;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -48,8 +61,9 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- Page Title -->
+            <!-- Page Title with Icon -->
             <h1 class="title is-1 publication-title">
+              <img src="/maskflow/static/images/maskicon.png" alt="Mask Icon" class="title-icon">
               MaskFlow: Discrete Flows for Flexible and Efficient Long Video Generation
             </h1>
             <!-- Authors -->
@@ -70,13 +84,11 @@
   <!-- TLDR Section with Two Columns -->
   <section class="section">
     <div class="container is-max-desktop content">
-      <h2 class="title">TLDR;</h2>
+      <h2 class="title">TLDR</h2>
       <div class="columns is-vcentered">
-        <!-- Left Column: Training Figure -->
+        <!-- Left Column: Training Figure (using an iframe with PDF URL parameters to disable toolbars) -->
         <div class="column is-5">
-          <object data="static/pdfs/training.pdf" type="application/pdf" width="100%" height="400">
-            <p>Your browser does not support PDFs. <a href="static/pdfs/training.pdf">Download the PDF</a>.</p>
-          </object>
+          <iframe class="pdf-figure" src="static/pdfs/training.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
           <p>
             <strong>MaskFlow Training:</strong> For each video, Baseline training applies a single masking ratio to all frames, whereas our method samples masking ratios independently for each frame.
           </p>
@@ -95,9 +107,7 @@
   <section class="section">
     <div class="container is-max-desktop content">
       <figure>
-        <object data="static/pdfs/sampling.pdf" type="application/pdf" width="100%" height="400">
-          <p>Your browser does not support PDFs. <a href="static/pdfs/sampling.pdf">Download the PDF</a>.</p>
-        </object>
+        <iframe class="pdf-figure" src="static/pdfs/sampling.pdf#toolbar=0&navpanes=0&scrollbar=0"></iframe>
         <figcaption>
           <strong>MaskFlow Sampling:</strong> Given <em>m=2</em> <span style="color: red;">context frames</span> used to initialize generation, we unmask the current window and use <span style="color: green;">newly generated frames</span> as new context frames in the next chunk of size <em>k=5</em>, using stride <em>s=3</em>. (<em>Tokenization is omitted here to simplify understanding</em>)
         </figcaption>
