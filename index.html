@@ -42,7 +42,7 @@
   </style>
 </head>
 <body>
-  <!-- Minimal Hero Section with background image -->
+  <!-- Hero Section with background image -->
   <section class="hero" style="background-image: url('/maskflow/static/images/backgroundddd.avif'); background-size: cover; background-position: center;">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -61,25 +61,45 @@
             <div class="is-size-5 publication-authors">
               <span class="author-block" style="font-weight: bold;">CompVis @ LMU Munich, MCML<br><br></span>
             </div>
-            <!-- Notice -->
-            <div class="column has-text-centered">
-              <h2 class="subtitle has-text-centered" style="font-weight: bold; color: gray; margin-top: 25px;">
-                Coming soon. Check
-                <a href="https://github.com/CompVis/maskflow" target="_blank">https://github.com/CompVis/maskflow</a>
-                for updates.
-              </h2>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Show an error if CSS or JS are missing ## -->
-  <noscript>
-    <p style="text-align:center; color:red; font-weight:bold;">
-      JavaScript is disabled or your resources aren't loading. Please enable JavaScript or check resource paths.
-    </p>
-  </noscript>
-</body>
-</html>
+  <!-- Abstract Section -->
+  <section class="section">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Abstract</h2>
+      <p>
+        Generating long, high-quality videos remains a challenge due to the complex interplay of spatial and temporal dynamics and hardware limitations. In this work, we introduce <strong>MaskFlow</strong>, a unified video generation framework that combines discrete representations with flow-matching to enable efficient generation of high-quality long videos. By leveraging a frame-level masking strategy during training, MaskFlow conditions on previously generated unmasked frames to generate videos with lengths ten times beyond that of the training sequences. MaskFlow does so very efficiently by enabling the use of fast Masked Generative Model (MGM)-style sampling and can be deployed in both fully autoregressive as well as full-sequence generation modes. We validate the quality of our method on the FaceForensics (FFS) and Deepmind Lab (DMLab) datasets and report Fréchet Video Distance (FVD) competitive with state-of-the-art approaches. We also provide a detailed analysis on the sampling efficiency of our method and demonstrate that MaskFlow can be applied to both timestep-dependent and timestep-independent models in a training-free manner.
+      </p>
+    </div>
+  </section>
+
+  <!-- Teaser Figures Section -->
+  <section class="section">
+    <div class="container is-max-desktop content">
+      <h2 class="title">Teaser Figures</h2>
+
+      <!-- First Figure -->
+      <figure>
+        <img src="static/pdfs/training.pdf" alt="MaskFlow Training">
+        <figcaption><strong>MaskFlow Training:</strong> For each video, Baseline training applies a single masking ratio to all frames, whereas our method samples masking ratios independently for each frame.</figcaption>
+      </figure>
+
+      <!-- Second Figure -->
+      <figure>
+        <img src="static/pdfs/sampling.pdf" alt="MaskFlow Sampling">
+        <figcaption><strong>MaskFlow Sampling:</strong> Given <em>m=2</em> context frames used to initialize generation, we unmask the current window and use newly generated frames as new context frames in the next chunk of size <em>k=5</em>, using stride <em>s=3</em>. (Tokenization is omitted here to simplify understanding.)</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Coming Soon Notice -->
+  <section class="section">
+    <div class="container is-max-desktop content has-text-centered">
+      <h2 class="subtitle" style="font-weight: bold; color: gray; margin-top: 25px;">
+
+::contentReference[oaicite:0]{index=0}
+ 
