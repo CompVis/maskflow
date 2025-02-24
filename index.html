@@ -122,14 +122,14 @@
         <div class="column is-5">
           <img src="static/images/training.png" alt="MaskFlow Training" class="figure-img">
           <p>
-            <strong>MaskFlow Training:</strong> For each video, Baseline training applies a single masking ratio to all frames, whereas our method samples masking ratios independently for each frame.
+            <strong>MaskFlow Training:</strong> Our baseline models apply the same masking ratio to all frames during training, whereas MaskFlow applies independent frame-level masking ratios for each frame.
           </p>
         </div>
         <!-- Right Column: TLDR Text -->
         <div class="column is-7">
           <h2 class="title is-4 has-text-centered">TLDR;</h2>
           <p>
-            MaskFlow is a chunkwise autoregressive approach to long video generation that uses frame-level masking and confidence-based heuristic sampling to produce seamless, high-quality video sequences efficiently. Instead of generating entire videos at once, MaskFlow generates overlapping chunks of frames, where each new chunk is conditioned on previously generated frames to ensure temporal consistency. During training, the model learns to reconstruct partially masked frames, making it naturally suited for extending video sequences while maintaining coherence. The frame-level masking strategy aligns perfectly with chunkwise generation, enabling the model to handle different levels of corruption while ensuring smooth transitions. To further speed up inference, we incorporate confidence-based heuristic sampling, selectively unmasking only the most confidently predicted tokens at each step. This approach allows MaskFlow to generate long videos with greater flexibility, efficiency, and fidelity than traditional methods;
+            MaskFlow is a chunkwise autoregressive approach to long video generation that uses frame-level masking and confidence-based heuristic sampling to produce seamless, high-quality video sequences efficiently. Instead of generating entire videos at once, MaskFlow generates overlapping chunks of frames, where each new chunk is conditioned on previously generated frames to ensure temporal consistency. During training, the model learns to reconstruct partially masked frames, making it naturally suited for extending video sequences while maintaining coherence. The frame-level masking strategy aligns perfectly with chunkwise generation, enabling the model to handle different levels of corruption while ensuring smooth transitions. To further speed up inference, we incorporate confidence-based heuristic sampling, selectively unmasking only the most confidently predicted tokens at each step. This approach allows MaskFlow to generate long videos with greater flexibility and efficiency than traditional methods.
           </p>
         </div>
       </div>
@@ -194,7 +194,7 @@
       </div>
     </div>
     <p class="has-text-centered">
-      MaskFlow can be rolled out autoregressively frame-by-frame to generate long high-quality videos beyond an extrapolation length of 10×. The videos above show a rollout of DMLab across 360 frames and still use only 20 function evaluations per frame.
+      MaskFlow can be rolled out autoregressively frame-by-frame to generate long high-quality videos beyond an extrapolation length of 10×. The videos above show a rollout of DMLab across 360 frames and still use only 20 function evaluations per frame. The models used to generate these videos were trained on chunks of 36 frames only.
     </p>
   </div>
 </section>
