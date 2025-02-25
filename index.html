@@ -152,53 +152,110 @@
   </section>
 
   <!-- Qualitative Results Section -->
-<section class="section">
-  <div class="container is-max-desktop content">
-    <h2 class="title is-4 has-text-centered">Qualitative Results</h2>
-    <div class="columns">
-      <div class="column is-half">
-        <figure class="image">
-          <img src="static/gifs/sampling_chain_maskflow.gif" alt="MaskFlow Sampling">
-        </figure>
-        <p class="has-text-centered"><strong>MaskFlow (MGM-Style) Sampling</strong></p>
+  <section class="section">
+    <div class="container is-max-desktop content">
+      <h2 class="title is-4 has-text-centered">Qualitative Results</h2>
+      <div class="columns">
+        <div class="column is-half">
+          <figure class="image">
+            <img src="static/gifs/sampling_chain_maskflow.gif" alt="MaskFlow Sampling">
+          </figure>
+          <p class="has-text-centered"><strong>MaskFlow (MGM-Style) Sampling</strong></p>
+        </div>
+        <div class="column is-half">
+          <figure class="image">
+            <img src="static/gifs/sampling_chain_fm.gif" alt="FM-Style Sampling">
+          </figure>
+          <p class="has-text-centered"><strong>FM-Style Sampling</strong></p>
+        </div>
       </div>
-      <div class="column is-half">
-        <figure class="image">
-          <img src="static/gifs/sampling_chain_fm.gif" alt="FM-Style Sampling">
-        </figure>
-        <p class="has-text-centered"><strong>FM-Style Sampling</strong></p>
-      </div>
-    </div>
-    <p class="has-text-centered">
-      Tokenization enables the use of confidence-based heuristic sampling, which is why MaskFlow can generate video chunks much faster compared to flow matching style sampling. MaskFlow is able to generate high quality videos in as little as 20 function evaluations, which makes it much more efficient compared to flow matching sampling that requires up to 250 function evaluations for high-quality results.
-    </p>
-    <hr>
-    <div class="columns">
-      <div class="column is-one-third">
-        <video controls width="100%">
-          <source src="static/videos/dmlab1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="column is-one-third">
-        <video controls width="100%">
-          <source src="static/videos/dmlab2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="column is-one-third">
-        <video controls width="100%">
-          <source src="static/videos/dmlab3.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-    <p class="has-text-centered">
-      MaskFlow can be rolled out autoregressively frame-by-frame to generate long high-quality videos beyond an extrapolation length of 10×. The videos above show a rollout of DMLab across 360 frames and still use only 20 function evaluations per frame. The models used to generate these videos were trained on chunks of 36 frames only.
-    </p>
-  </div>
-</section>
+      <p class="has-text-centered">
+        Tokenization enables the use of confidence-based heuristic sampling, which is why MaskFlow can generate video chunks much faster compared to flow matching style sampling. MaskFlow is able to generate high quality videos in as little as 20 function evaluations, which makes it much more efficient compared to flow matching sampling that requires up to 250 function evaluations for high-quality results.
+      </p>
+      <hr>
 
+      <!-- New Full Sequence Generation Section -->
+      <div>
+        <h3 class="title is-5 has-text-centered">Full Sequence Generation</h3>
+        <div class="columns">
+          <div class="column is-one-third">
+            <video controls width="100%">
+              <source src="static/videos/ffs_160f_1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="column is-one-third">
+            <video controls width="100%">
+              <source src="static/videos/ffs_160f_2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="column is-one-third">
+            <video controls width="100%">
+              <source src="static/videos/ffs_160f_3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div class="columns">
+          <div class="column is-one-third">
+            <video controls width="100%">
+              <source src="static/videos/ffs_160f_2_1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="column is-one-third">
+            <video controls width="100%">
+              <source src="static/videos/ffs_160f_2_2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="column is-one-third">
+            <video controls width="100%">
+              <source src="static/videos/ffs_160f_2_3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <p class="has-text-centered">
+          MaskFlow is able to maintain quality at up to 160 frames on FaceForensics by conditioning on previously generated chunks.
+          All models used to generate these videos were trained on 16 frame chunks only, and require only 20 function evaluations
+          for each generated chunk.
+        </p>
+      </div>
+
+      <hr>
+
+      <!-- Autoregressive Generation Section for DMLab videos -->
+      <h3 class="title is-5 has-text-centered">Autoregressive Generation</h3>
+      <div class="columns">
+        <div class="column is-one-third">
+          <video controls width="100%">
+            <source src="static/videos/dmlab1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="column is-one-third">
+          <video controls width="100%">
+            <source src="static/videos/dmlab2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="column is-one-third">
+          <video controls width="100%">
+            <source src="static/videos/dmlab3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <p class="has-text-centered">
+        MaskFlow can be rolled out autoregressively frame-by-frame to generate long high-quality videos beyond an
+        extrapolation length of 10×. The videos above show a rollout of DMLab across 360 frames and still use only
+        20 function evaluations per frame. The models used to generate these videos were trained on chunks of 36
+        frames only.
+      </p>
+    </div>
+  </section>
 
   <!-- BibTex Citation Section -->
   <section class="section">
