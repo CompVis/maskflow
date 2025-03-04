@@ -1,0 +1,44 @@
+name: celebav_256
+
+train_steps: 400_000
+sample_vis_n: 1
+sample_vis_every: 20_00
+
+batch_size: 20
+image_size: 256
+num_classes: -1
+
+subset: train
+sample_fid_n: 5_000
+eval_last_fid_num: 50_000
+sample_fid_every: 20_000
+sample_fid_bs: ${data.batch_size}
+
+
+video_frames: 16
+tar_base: /p/home/jusers/hu12/juwels/degeai/datasets/celebav_debug
+val_batch_size: 8
+num_workers: 1
+val_num_workers: 0 # this has to match #shards % (#gpu * #workers) == 0
+multinode: True
+is_video: True 
+train:
+  shards: 'train-{000000..000066}.tar'
+  #image_key: video.npy
+  rename:
+    #video: video.npy
+    frame_feature256: svae
+    emotions_caption_feature: emotions_caption_feature.npy
+    emotions_caption: emotions_caption.json
+    face_details_caption: face_details_caption.json
+    face_details_caption_feature: face_details_caption_feature.npy
+validation:
+  shards: 'train-{000000..000066}.tar'
+  #image_key: video.npy
+  rename:
+    #video: video.npy
+    frame_feature256: frame_feature256.npy
+    emotions_caption_feature: emotions_caption_feature.npy
+    emotions_caption: emotions_caption.json
+    face_details_caption: face_details_caption.json
+    face_details_caption_feature: face_details_caption_feature.npy

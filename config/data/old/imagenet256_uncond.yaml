@@ -1,0 +1,34 @@
+name: imagenet256_uncond
+
+train_steps: 400_000
+sample_vis_n: 16
+video_frames: 0
+sample_vis_every: 20_00
+
+batch_size: 3
+image_size: 256
+num_classes: -1
+
+subset: train
+sample_fid_n: 5_000
+eval_last_fid_num: 50_000
+sample_fid_every: 50_000
+sample_fid_bs: ${data.batch_size}
+
+tar_base: /export/home/thu/data/imagenet256_raw_wds_train
+val_batch_size: 8
+num_workers: 1
+val_num_workers: 3 # this has to match #shards % (#gpu * #workers) == 0
+multinode: True
+train:
+  shards: "train-{000000..000192}.tar"
+  image_key: image.jpg
+  rename:
+    image: image.jpg
+    cls_id: cls_id.cls
+validation:
+  shards: "train-{000000..000192}.tar"
+  image_key: image.jpg
+  rename:
+    image: image.jpg
+    cls_id: cls_id.cls

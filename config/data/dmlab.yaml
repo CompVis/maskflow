@@ -1,0 +1,30 @@
+name: dmlab
+
+train_steps: 1_000_000
+sample_vis_n: 16
+video_frames: 16
+sample_vis_every: 5
+
+batch_size: 1
+image_size: 64
+num_classes: -1
+in_channels: 3
+
+subset: train
+sample_fid_n: 5_000
+eval_last_fid_num: 50_000
+sample_fid_every: 50_000
+sample_fid_bs: ${data.batch_size}
+
+sample_fvd_n: 10
+sample_fvd_every: 2
+sample_fvd_bs: ${data.batch_size}
+
+npz_real: ./data/dmlab_fidstats_50k.npz
+
+h5_path: ./data/dmlab_train_pixels_16f.h5
+num_train_examples: 625
+per_gpu_batch_size: ${data.batch_size}
+global_batch_size: null
+num_workers_per_gpu: 4 #follow titok
+frame_interval: 1

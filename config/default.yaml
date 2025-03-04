@@ -1,0 +1,49 @@
+defaults:
+  - data: ffs_indices
+  - train: default
+  - model: dlatte_xl2
+  - dynamic: maskflow
+  - wandb: default
+  - optim: default
+  - lrschedule: default
+  - tokenizer: sd_vq_f8
+  - _self_
+
+debug: false 
+input_tensor_type: btwh
+
+accum: 1
+mixed_precision: fp16  #fp8, fp16, fp32, no
+
+ckpt: null  
+ckpt_without_wandb: null
+ckpt_latte: null
+compile: null
+resume: null
+
+global_seed: 0
+log_every: 100
+ckpt_every: 30_000
+sample_every: 5000
+max_grad_norm: 2.0
+
+use_wandb: true
+note: note   
+timestamp: 
+use_ema: true
+ema_rate: 0.9999
+
+offline_sample_local_bs: 4
+num_fid_samples: 50_000
+sample_dir: samples
+
+vae: ema
+job_name: ${dynamic.name}_${model.name}_${data.name}_bs${data.batch_size}
+run_dir: outputs/${job_name}/${now:%Y-%m-%d_%H-%M-%S}_${timestamp}
+
+
+
+
+
+
+

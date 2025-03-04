@@ -1,0 +1,31 @@
+name: maskflow
+mask_ce: True
+smooth: 0.0
+temperature: 1.0
+adaptive_stepsize: False
+time_cond: 1.0
+use_fp16: True
+objective: pred_x0
+noise_level: random_all
+n_frames: ${data.video_frames}
+tokenizer: ${tokenizer}
+
+reweigh_loss: none
+cum_snr_decay: 0.80
+snr_clip: 6.0
+use_fused_snr: True
+
+sampler: fm
+sampling_timesteps: 250
+sampling_horizon: 16
+scheduling_matrix: full_sequence
+sampling_window_stride: 16
+n_context_frames: 0
+stabilization_level: 1
+minimum_noise_level: 0.0
+
+partial_context_guidance: False
+partial_context_guidance_level: 1.0
+partial_context_guidance_steps: 20
+scheduler: sigmoid
+

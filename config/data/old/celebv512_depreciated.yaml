@@ -1,0 +1,26 @@
+name: celebv512
+
+train_steps: 400_000
+sample_vis_n: 1
+sample_vis_every: 20_00
+
+batch_size: 20
+image_size: 512
+
+
+subset: train
+sample_fid_n: 5_000
+eval_last_fid_num: 50_000
+sample_fid_every: 20_000
+sample_fid_bs: ${data.batch_size}
+
+
+
+
+################
+
+video_frames: 8  # video_frames
+fps: 10 # 25
+data_path: "./data/celebv_512"
+split: train
+n_epochs: 1_000_000

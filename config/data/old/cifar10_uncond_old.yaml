@@ -1,0 +1,37 @@
+name: cifar10_uncond
+
+train_steps: 400_000
+sample_vis_n: 16
+video_frames: 0
+sample_vis_every: 20_00
+
+batch_size: 3
+image_size: 32
+num_classes: -1
+
+subset: train
+sample_fid_n: 5_000
+eval_last_fid_num: 50_000
+sample_fid_every: 50_000
+sample_fid_bs: 100 #4
+
+tar_base: ./data/cifar10_wds_train
+tar_base_wid_json: ./data/cifar10_wds_train.json
+val_batch_size: 8
+num_workers: 1
+val_num_workers: 3 # this has to match #shards % (#gpu * #workers) == 0
+multinode: True
+train:
+  shards: "train-{000000..000018}.tar"
+  shuffle: 1000
+  image_key: image.jpg
+  rename:
+    image: image.jpg
+    cls_id: cls_id.cls
+validation:
+  shards: "train-{000000..000018}.tar"
+  shuffle: 1000
+  image_key: image.jpg
+  rename:
+    image: image.jpg
+    cls_id: cls_id.cls

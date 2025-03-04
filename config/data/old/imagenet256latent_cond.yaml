@@ -1,0 +1,35 @@
+name: imagenet256latent_cond 
+
+train_steps: 400_000
+sample_vis_n: 1
+sample_vis_every: 20_00
+
+batch_size: 20
+image_size: 256
+num_classes: 1001
+
+subset: train
+sample_fid_n: 5_000
+eval_last_fid_num: 50_000
+sample_fid_every: 50_000
+sample_fid_bs: ${data.batch_size}
+
+
+tar_base: ./data/imagenet256_wds  
+val_batch_size: 8
+num_workers: 1
+val_num_workers: 3 # this has to match #shards % (#gpu * #workers) == 0
+multinode: True
+
+train:
+  shards: 'latent_imagenet_256_train-{0000..0127}.tar'
+  image_key: latent
+  rename:
+    latent: latent
+    cls_id: cls
+    
+validation:
+  shards: 'latent_imagenet_256_train-{0000..0127}.tar'
+  rename:
+    latent: latent
+    cls_id: cls
